@@ -1,0 +1,68 @@
+
+■git clone後の作業
+
+▼Next.js関連の設定
+
+パッケージのインストール(node_modulesディレクトリの生成)
+npm install
+
+Nginxのビルド(.nextディレクトリの生成)
+npm run build
+
+▼DB関連の設定
+
+.env.exampleをコピーして.envを作成
+
+MySQLの権限変更(Prismaのマイグレーションでエラーが出るため)
+mysql> GRANT CREATE, ALTER, DROP, REFERENCES ON *.* to 'user'@'%';
+
+マイグレーション実行
+npx prisma migrate dev --name init
+
+Prisma Clientの生成
+npx prisma generate
+
+
+
+
+
+
+■初回作業
+
+Next.jsをインストールするコマンド
+npx create-next-app@latest project
+
+上記を実行した際のオプション
+node ➜ /workspaces (dev/add-mysql-1) $ npx create-next-app@latest project
+Need to install the following packages:
+create-next-app@15.1.7
+Ok to proceed? (y) 
+
+✔ Would you like to use TypeScript? … No / Yes
+✔ Would you like to use ESLint? … No / Yes
+✔ Would you like to use Tailwind CSS? … No / Yes
+✔ Would you like your code inside a `src/` directory? … No / Yes
+✔ Would you like to use App Router? (recommended) … No / Yes
+✔ Would you like to use Turbopack for `next dev`? … No / Yes
+✔ Would you like to customize the import alias (`@/*` by default)? … No / Yes
+
+
+Prismaのインストール
+cd project
+npm install prisma --save-dev
+npm install @prisma/client
+npx prisma init
+
+MySQLの権限変更(Prismaのマイグレーションでエラーが出るため)
+mysql> GRANT CREATE, ALTER, DROP, REFERENCES ON *.* to 'user'@'%';
+
+.envとschema.prismaを修正
+
+マイグレーション実行
+npx prisma migrate dev --name init
+
+Prisma Clientの生成
+npx prisma generate
+
+bcrypt(bcryptjs)のインストール
+npm install --save-dev bcryptjs @types/bcrypt
