@@ -13,6 +13,11 @@ RUN npm install -g npm
 #     && npm install -g n \
 #     && n stable
 
+# openssl のインストール
+RUN apt-get update && apt-get install -y openssl
+
+# apt-get update によって取得されたパッケージリスト( /var/lib/apt/lists/* )を削除し、Dockerイメージのサイズを削減する
+RUN rm -rf /var/lib/apt/lists/*
 
 # コンテナ起動時のコマンド
 
