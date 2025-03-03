@@ -64,5 +64,8 @@ npx prisma migrate dev --name init
 Prisma Clientの生成
 npx prisma generate
 
-bcrypt(bcryptjs)のインストール
+bcrypt(bcryptjs)のインストール ※--save-devが必要か否かは要調査
 npm install --save-dev bcryptjs @types/bcrypt
+
+next-authのインストール
+npm install next-auth

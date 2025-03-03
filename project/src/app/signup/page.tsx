@@ -46,7 +46,6 @@ export default function Signup() {
                     onChange={e => setEmail(e.target.value)}
                     required
                 />
-
                 <label htmlFor="">パスワード</label>
                 <input
                     type="password"
