@@ -28,7 +28,7 @@ export default function Signup() {
       }
 
       router.push('/');
-    }catch () {
+    }catch (e) {
       setError('エラーが発生しました。');
     }
   };

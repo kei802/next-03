@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 
-export default function login() {
+export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -31,7 +31,7 @@ export default function login() {
       <h1>ログイン</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="">メールアドレス</label>
+        <label htmlFor="email">メールアドレス</label>
         <input
           type="email"
           id="email"
@@ -39,7 +39,7 @@ export default function login() {
           onChange={e => setEmail(e.target.value)}
           required
         />
-        <label htmlFor="">パスワード</label>
+        <label htmlFor="password">パスワード</label>
         <input
           type="password"
           id="password"
